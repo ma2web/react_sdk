@@ -4,10 +4,10 @@ import { Post } from '@tribeplatform/gql-client/types';
 import { useFeed } from '@tribeplatform/react-sdk/hooks';
 import InfiniteScroll from 'react-infinite-scroller';
 import { Link } from 'react-router-dom';
-import MainLayout from '../../layout/MainLayout';
+import MainLayout from 'layout/MainLayout/MainLayout';
 
 const News = () => {
-  const { data, fetchNextPage, hasNextPage } = useFeed({
+  const { data, fetchNextPage, hasNextPage, isLoading } = useFeed({
     fields: {
       reactions: {
         fields: 'all',
@@ -34,21 +34,27 @@ const News = () => {
           loadMore={fetchNextPage}
           hasMore={hasNextPage}
         >
-          {posts.map((post, i) => (
-            <div className="flex gap-2 bg-hacker-body p-2" key={post?.id}>
-              <div className="flex flex-col justify-center">{i + 1}.</div>
-              <div className="flex flex-col flex-grow">
-                <Link to={`/news/${post.id}`}>
-                  <div>{post.title}</div>
-                </Link>
-                <div className="flex gap-2 text-xs text-gray-500">
-                  <div>By {post.createdBy?.member?.name}</div>|
-                  <div>{post.reactionsCount} upvotes</div>|
-                  <div>{post.repliesCount} comments</div>
+          {isLoading ? (
+            <div className="text-center">Loading...</div>
+          ) : (
+            <div>
+              {posts.map((post, i) => (
+                <div className="flex gap-2 bg-hacker-body p-2" key={post?.id}>
+                  <div className="flex flex-col justify-center">{i + 1}.</div>
+                  <div className="flex flex-col flex-grow">
+                    <Link to={`/news/${post.id}`}>
+                      <div>{post.title}</div>
+                    </Link>
+                    <div className="flex gap-2 text-xs text-gray-500">
+                      <div>By {post.createdBy?.member?.name}</div>|
+                      <div>{post.reactionsCount} upvotes</div>|
+                      <div>{post.repliesCount} comments</div>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
+          )}
         </InfiniteScroll>
       </div>
     </MainLayout>

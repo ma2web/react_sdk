@@ -14,6 +14,7 @@ root.render(
       config={{
         baseUrl: 'https://app.tribe.so/graphql',
         networkDomain: 'react-sdk-tutorial.tribeplatform.com',
+        accessToken: localStorage.getItem('apiKey') || '',
       }}
     >
       <BrowserRouter>
