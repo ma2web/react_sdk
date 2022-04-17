@@ -5,9 +5,9 @@ interface AuxProps {
   children: ReactChild;
 }
 
-const AuthLayout = ({ children }: AuxProps) => {
+const AuthMainLayout = ({ children }: AuxProps) => {
   const classes = useStyles();
   return <div className={classes.root}>{children}</div>;
 };
 
-export default AuthLayout;
+export default AuthMainLayout;

@@ -1,7 +1,8 @@
-import { useStyles } from './Navbat.styles';
-import { Link } from 'react-router-dom';
+import { useStyles } from './Navbar.styles';
+import { NavLink } from 'react-router-dom';
 import { useLogout } from 'hooks/useLogout';
 import { useAuthMember } from '@tribeplatform/react-sdk/hooks';
+import Logo from 'assets/images/logo.svg';
 
 const Navbar = () => {
   const classes = useStyles();
@@ -12,36 +13,43 @@ const Navbar = () => {
 
   return (
     <nav className={classes.root}>
-      <ul>
-        <li>
-          <Link to="/">Tribe</Link>
-        </li>
-        <li>
-          <Link to="/news">News</Link>
-        </li>
-        {!user && (
+      <div className={classes.logo}>
+        <img src={Logo} alt="logo" />
+      </div>
+      <div className={classes.menu}>
+        <ul>
+          <li>
+            <NavLink to="/">Tribe</NavLink>
+          </li>
+          <li>
+            <NavLink to="/news">News</NavLink>
+          </li>
+          {!user && (
+            <>
+              <li>
+                <NavLink to="/login">Login</NavLink>
+              </li>
+              <li>
+                <NavLink to="/signup">Sign Up</NavLink>
+              </li>
+            </>
+          )}
+        </ul>
+      </div>
+      <div className={classes.user}>
+        {user && (
           <>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/signup">Sign Up</Link>
-            </li>
+            <span>Hello, {user.name}</span>
+            <div
+              onClick={() => {
+                logout();
+              }}
+            >
+              Logout
+            </div>
           </>
         )}
-      </ul>
-      {user && (
-        <>
-          <span>Hello, {user.name}</span>
-          <div
-            onClick={() => {
-              logout();
-            }}
-          >
-            Logout
-          </div>
-        </>
-      )}
+      </div>
     </nav>
   );
 };

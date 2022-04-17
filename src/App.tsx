@@ -4,9 +4,9 @@ import Home from './pages/home/Home';
 import News from './pages/news/News';
 import SingleNews from './pages/news/SingleNews';
 import { ThemeProvider } from 'react-jss';
-import { theme } from './theme/theme';
 import Login from 'pages/auth/login/Login';
 import Signup from 'pages/auth/signup/Signup';
+import { theme } from 'theme/theme';
 
 function App() {
   return (
