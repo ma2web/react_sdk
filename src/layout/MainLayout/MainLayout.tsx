@@ -9,7 +9,6 @@ interface AuxProps {
 
 const MainLayout = ({ footer, children }: AuxProps) => {
   const classes = useStyles();
-  console.log(footer);
 
   return (
     <div className={classes.root}>

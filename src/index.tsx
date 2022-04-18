@@ -8,6 +8,8 @@ import { Provider as TribeProvider } from '@tribeplatform/react-sdk';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+console.log(localStorage.getItem('apiKey'));
 root.render(
   <React.StrictMode>
     <TribeProvider

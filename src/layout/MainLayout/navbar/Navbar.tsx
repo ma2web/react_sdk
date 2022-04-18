@@ -11,6 +11,8 @@ const Navbar = () => {
   const { data: user } = useAuthMember();
   const navigate = useNavigate();
 
+  console.log({ user });
+
   return (
     <nav className={classes.root}>
       <div className={classes.flex}>
