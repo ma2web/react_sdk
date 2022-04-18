@@ -13,7 +13,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `used technologies`
 
-1- tribe react-sdk
-2- three.js
-3- GSAP
+1- tribe react-sdk\
+2- three.js\
+3- GSAP\
 4- JSS
