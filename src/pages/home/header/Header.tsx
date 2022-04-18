@@ -17,7 +17,7 @@ const Header = () => {
           stagger={0.1}
         >
           <SplitChars wrapper={<div className={classes.title} />}>
-            Tribe News Center
+            Tribe Hacker News
           </SplitChars>
         </Tween>
         <Tween
