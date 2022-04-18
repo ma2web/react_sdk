@@ -52,6 +52,9 @@ export const useStyles = createUseStyles((theme: ThemeInterface) => ({
   greenText: {
     color: theme.palette.primary[400],
   },
+  button: {
+    backgroundColor: theme.palette.primary[500],
+  },
   description: {
     textAlign: 'center',
     fontSize: 1 + 'rem',

@@ -6,6 +6,7 @@ export type ButtonProps = {
   children?: React.ReactNode;
   color?: 'primary' | 'secondary';
   disabled?: boolean;
+  size?: 'small' | 'large';
 };
 
 const Button = ({
@@ -13,18 +14,16 @@ const Button = ({
   color,
   onClick,
   disabled,
+  size,
   ...props
 }: ButtonProps) => {
-  const classes = useStyles({ color });
+  const classes = useStyles({ color, size });
   return (
-    <button
-      className={classes.root}
-      onClick={onClick}
-      disabled={disabled}
-      {...props}
-    >
-      {children}
-    </button>
+    <div className={classes.root}>
+      <button onClick={onClick} disabled={disabled} {...props}>
+        {children}
+      </button>
+    </div>
   );
 };
 

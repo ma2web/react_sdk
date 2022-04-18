@@ -11,7 +11,7 @@ const MainLayout = ({ children }: AuxProps) => {
   return (
     <div className={classes.root}>
       <Navbar />
-      {children}
+      <div>{children}</div>
     </div>
   );
 };

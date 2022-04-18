@@ -2,6 +2,7 @@ import { createUseStyles } from 'react-jss';
 
 interface ThemeInterface {
   spacing: {
+    1: number;
     3: number;
     8: number;
     10: number;
@@ -15,21 +16,31 @@ interface ThemeInterface {
     };
     common: {
       black: string;
+      white: string;
     };
   };
 }
 
 export const useStyles = createUseStyles((theme: ThemeInterface) => ({
   root: (props: any) => ({
-    background:
-      props?.color === 'primary'
-        ? theme.palette.primary[500]
-        : props?.color === 'secondary'
-        ? theme.palette.secondary[500]
-        : 'transparent',
-    padding: `${theme.spacing[3]}px ${theme.spacing[8]}px`,
-    borderRadius: 4,
-    cursor: 'pointer',
+    '& button': {
+      background:
+        props?.color === 'primary'
+          ? theme.palette.primary[500]
+          : props?.color === 'secondary'
+          ? theme.palette.secondary[500]
+          : 'transparent',
+      padding:
+        props?.size === 'small'
+          ? `${theme.spacing[1]}px ${theme.spacing[3]}px`
+          : `${theme.spacing[3]}px ${theme.spacing[8]}px`,
+      borderRadius: 4,
+      cursor: 'pointer',
+      color: theme.palette.common.white,
+      '&:hover': {
+        filter: 'saturate(1.5)',
+      },
+    },
   }),
   logo: {
     marginRight: theme.spacing[10],

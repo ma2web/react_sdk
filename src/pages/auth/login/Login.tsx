@@ -1,6 +1,7 @@
 import AuthLayout from 'layout/AuthLayout/AuthLayout';
 import { useState } from 'react';
 import { useLogin } from 'hooks/useLogin';
+import Button from 'components/button/Button';
 
 const Login = () => {
   const [email, setEmail] = useState<string>('');
@@ -8,8 +9,8 @@ const Login = () => {
   const login = useLogin();
 
   return (
-    <AuthLayout>
-      <div className="w-1/2 mx-auto mt-5">
+    <AuthLayout page="login">
+      <div className="w-1/2 mx-auto">
         <h1 className="text-2xl mb-5">Login</h1>
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Email
@@ -29,14 +30,14 @@ const Login = () => {
           placeholder="********"
           onChange={(event) => setPassword(event.target.value)}
         />
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5"
+        <Button
+          color="primary"
           onClick={() => {
             login(email, password);
           }}
         >
           Login
-        </button>
+        </Button>
       </div>
     </AuthLayout>
   );

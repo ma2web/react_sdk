@@ -45,18 +45,29 @@ export const useStyles = createUseStyles((theme: ThemeInterface) => ({
     padding: theme.spacing[4] + 'px',
   },
   cardItem: {
-    padding: theme.spacing[4] + 'px',
     borderRadius: 8,
     backgroundColor: theme.palette.gray[200],
+  },
+  cardImage: {
+    width: '100%',
+    maxHeight: 200,
+    overflow: 'hidden',
+    borderRadius: '8px 8px 0 0',
+    '& img': {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+    },
   },
   title: {
     fontSize: 1.5 + 'rem',
     fontWeight: 700,
     lineHeight: 1.3,
-    marginBottom: theme.spacing[4] + 'px',
-    maxWidth: 40 + '%',
+    padding: `${theme.spacing[4]}px ${theme.spacing[4]}px 0`,
   },
-  description: {},
+  description: {
+    padding: `${theme.spacing[4]}px ${theme.spacing[4]}px`,
+  },
   '@media (max-width: 768px)': {
     card: {
       width: 100 + '%',

@@ -25,7 +25,7 @@ const Header = () => {
           to={{ y: 0, opacity: 1, ease: 'power2.out', delay: 2 }}
           stagger={0.1}
         >
-          <div className={classes.greenText}>
+          <div>
             <p className={classes.description}>
               You can play with the sphere by mouse draging
               <br /> on the earth or stars

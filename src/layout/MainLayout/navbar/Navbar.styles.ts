@@ -20,6 +20,7 @@ export const useStyles = createUseStyles((theme: ThemeInterface) => ({
   root: {
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'space-between',
     position: 'fixed',
     top: 0,
     left: 0,
@@ -34,6 +35,7 @@ export const useStyles = createUseStyles((theme: ThemeInterface) => ({
   menu: {
     '& ul': {
       display: 'flex',
+      alignItems: 'center',
       '& li': {
         padding: 10,
         '& a': {
@@ -44,6 +46,10 @@ export const useStyles = createUseStyles((theme: ThemeInterface) => ({
         },
       },
     },
+  },
+  flex: {
+    display: 'flex',
+    alignItems: 'center',
   },
   user: {},
 }));

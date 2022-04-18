@@ -1,6 +1,7 @@
 import AuthLayout from 'layout/AuthLayout/AuthLayout';
 import { useSignUp } from 'hooks/useSignup';
 import { useState } from 'react';
+import Button from 'components/button/Button';
 
 const Signup = () => {
   const [email, setEmail] = useState<string>('');
@@ -10,8 +11,8 @@ const Signup = () => {
   const signup = useSignUp();
 
   return (
-    <AuthLayout>
-      <div className="w-1/2 mx-auto mt-5">
+    <AuthLayout page="signup">
+      <div className="w-1/2 mx-auto">
         <h1 className="text-2xl mb-5">Sign Up</h1>
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Email
@@ -41,7 +42,7 @@ const Signup = () => {
           onChange={(event) => setPassword(event.target.value)}
         />
         <div
-          className="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3"
+          className="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 mb-5"
           role="alert"
         >
           <p className="text-sm">
@@ -49,14 +50,14 @@ const Signup = () => {
             number, 1 special character and be at least 10 characters long.
           </p>
         </div>
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5"
+        <Button
+          color="primary"
           onClick={() => {
             signup(email, name, password);
           }}
         >
           Sign Up
-        </button>
+        </Button>
       </div>
     </AuthLayout>
   );

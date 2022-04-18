@@ -6,11 +6,11 @@ const Cards = () => {
   const classes = useStyles();
 
   // GSAP section
-  const revealsRef = useRef([]) as any;
-  revealsRef.current = [];
+  const ref = useRef([]) as any;
+  ref.current = [];
 
   useEffect(() => {
-    revealsRef?.current.map((item: any, index: any) => {
+    ref?.current.map((item: any, index: any) => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: item,
@@ -47,18 +47,28 @@ const Cards = () => {
   }, []);
 
   const addToRefs = (el: any) => {
-    if (el && !revealsRef.current.includes(el)) {
-      revealsRef.current.push(el);
+    if (el && !ref.current.includes(el)) {
+      ref.current.push(el);
     }
   };
 
   return (
     <div className={classes.cards}>
       {cards?.map((card) => (
-        <div className={classes.card} ref={addToRefs}>
-          <div className={classes.cardItem} key={card.id}>
-            <h1 className={classes.title}>{card.title}</h1>
-            <p className={classes.description}>{card.description}</p>
+        <div className={classes.card}>
+          <div className={classes.cardItem} key={card.id} ref={addToRefs}>
+            <div className={classes.cardImage}>
+              <img
+                src={`https://source.unsplash.com/random/${card.id}00×${card.id}00`}
+                alt={card.title}
+              />
+            </div>
+            <div>
+              <h1 className={classes.title}>{card.title}</h1>
+            </div>
+            <div>
+              <p className={classes.description}>{card.description}</p>
+            </div>
           </div>
         </div>
       ))}
@@ -86,5 +96,23 @@ const cards = [
     title: 'Feedback and communication',
     description:
       'Embrace the Voice of the Customer, collect actionable insights, and share product updates.',
+  },
+  {
+    id: 4,
+    title: 'Feedback and communication',
+    description:
+      'Embrace the Voice of the Customer, collect actionable insights, and share product updates.',
+  },
+  {
+    id: 5,
+    title: 'Customer Engagement',
+    description:
+      'Convert customers into engaged advocates. Build and grow customer relationships with powerful social tools.',
+  },
+  {
+    id: 6,
+    title: 'Support and self-service',
+    description:
+      'Empower customers to help each other. Enable them to solve problems independently with collective wisdom.',
   },
 ];

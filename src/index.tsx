@@ -17,7 +17,7 @@ root.render(
         accessToken: localStorage.getItem('apiKey') || '',
       }}
     >
-      <BrowserRouter>
+      <BrowserRouter basename="/">
         <App />
       </BrowserRouter>
     </TribeProvider>
