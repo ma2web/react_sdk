@@ -23,7 +23,6 @@ interface ThemeInterface {
 
 export const useStyles = createUseStyles((theme: ThemeInterface) => ({
   root: {
-    height: 100 + 'vh',
     padding: `${theme.spacing[4]}px ${theme.spacing[8]}px`,
     backgroundColor: theme.palette.gray[100],
     overflow: 'hidden',

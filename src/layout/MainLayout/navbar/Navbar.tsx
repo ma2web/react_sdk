@@ -1,5 +1,5 @@
 import { useStyles } from './Navbar.styles';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useLogout } from 'hooks/useLogout';
 import { useAuthMember } from '@tribeplatform/react-sdk/hooks';
 import Logo from 'assets/images/logo.svg';
@@ -9,13 +9,12 @@ const Navbar = () => {
   const classes = useStyles();
   const logout = useLogout();
   const { data: user } = useAuthMember();
-
-  console.log('user', user);
+  const navigate = useNavigate();
 
   return (
     <nav className={classes.root}>
       <div className={classes.flex}>
-        <div className={classes.logo}>
+        <div className={classes.logo} onClick={() => navigate('/')}>
           <img src={Logo} alt="logo" />
         </div>
         <div className={classes.menu}>

@@ -3,6 +3,7 @@ import MainLayout from 'layout/MainLayout/MainLayout';
 import { useStyles } from './Home.styles';
 import Header from './header/Header';
 import Solutions from './solutions/Solutions';
+import About from './about/About';
 
 const Home = () => {
   const classes = useStyles();
@@ -12,6 +13,7 @@ const Home = () => {
         <Header />
         <div className={classes.curved} />
         <Solutions />
+        <About />
       </main>
     </MainLayout>
   );

@@ -31,6 +31,7 @@ export const useStyles = createUseStyles((theme: ThemeInterface) => ({
   },
   logo: {
     marginRight: theme.spacing[10],
+    cursor: 'pointer',
   },
   menu: {
     '& ul': {
