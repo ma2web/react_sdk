@@ -33,4 +33,9 @@ export const useStyles = createUseStyles((theme: ThemeInterface) => ({
       },
     },
   },
+  '@media (max-width: 800px)': {
+    root: {
+      flexDirection: 'column',
+    }
+  }
 }));

@@ -4,6 +4,7 @@ import { useStyles } from './Home.styles';
 import Header from './header/Header';
 import Solutions from './solutions/Solutions';
 import About from './about/About';
+import Carousel from './carousel/Carousel';
 
 const Home = () => {
   const classes = useStyles();
@@ -14,6 +15,7 @@ const Home = () => {
         <div className={classes.curved} />
         <Solutions />
         <About />
+        <Carousel/>
       </main>
     </MainLayout>
   );
