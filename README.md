@@ -1,4 +1,4 @@
-# Tribe React SDK
+# React SDK Example
 
 Using Tribe react sdk, react and typescript
 
